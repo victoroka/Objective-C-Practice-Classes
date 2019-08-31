@@ -25,12 +25,44 @@
     return self;
 }
 
--(Move) generateMove {
-    return Rock;
+-(instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        _move = [self generateMove];
+    }
+    return self;
 }
 
--(BOOL) defeats:(RPSTurn *) turn {
-    return false;
+-(Move) generateMove {
+    NSUInteger randomNumber = arc4random_uniform(3);
+    
+    // Objc switches can only handle Integers
+    // and require a default case
+    switch (randomNumber) {
+        case 0:
+            return Rock;
+            break;
+        case 1:
+            return Paper;
+            break;
+        case 2:
+            return Scisors;
+            break;
+        default:
+            return Invalid;
+            break;
+    }
+}
+
+-(BOOL) defeats:(RPSTurn *) opponent {
+    if ((self.move == Paper && opponent.move == Rock) ||
+        (self.move == Scisors && opponent.move == Paper) ||
+        (self.move == Rock && opponent.move == Scisors)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 @end
