@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype) initWithFirstTurn: (RPSTurn*) playerTurn
                        secondTurn: (RPSTurn*) computerTurn;
 
+-(RPSTurn*) winner;
+-(RPSTurn*) loser;
 @end
 
 NS_ASSUME_NONNULL_END

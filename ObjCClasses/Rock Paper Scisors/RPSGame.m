@@ -20,4 +20,11 @@
     return self;
 }
 
+-(RPSTurn*) winner {
+    return [self.firstTurn defeats:self.secondTurn] ? self.firstTurn : self.secondTurn;
+}
+
+-(RPSTurn*) loser {
+    return [self.firstTurn defeats:self.secondTurn] ? self.secondTurn : self.firstTurn;
+}
 @end

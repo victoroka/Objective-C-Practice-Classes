@@ -65,4 +65,16 @@
     }
 }
 
+-(NSString*) description {
+    if (self.move == Rock) {
+        return @"Rock";
+    } else if (self.move == Paper) {
+        return @"Paper";
+    } else if (self.move == Scisors) {
+        return @"Scisors";
+    } else {
+        return @"Invalid move!";
+    }
+}
+
 @end
