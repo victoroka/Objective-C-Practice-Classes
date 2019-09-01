@@ -12,13 +12,14 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // Initialize an instance of RPSController
+        RPSController *gameController = [[RPSController alloc]init];
+        
         // Send the message throwDown: to the game controller you just created
-        // Create an NSString called results message
+        [gameController throwDown:Rock];
         // Call the method, messageForGame: using the gameController you just created
-        // Pass gameController.game as a parameter to messageForGame:
         // Assign the return value of messageForGame: to the resultsMessage string
-        NSString *resultsMessage = @"";
-        NSLog(@"%@", resultsMessage);
+        NSString *reportMessage = [gameController messageForGame:gameController.game];
+        NSLog(@"%@", reportMessage);
     }
     return 0;
 }
